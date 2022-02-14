@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'showmap',
+    redirectTo: 'dbhome',
     pathMatch: 'full'
   },
   {

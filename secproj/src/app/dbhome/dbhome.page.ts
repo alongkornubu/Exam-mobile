@@ -1,8 +1,8 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
-import { Student } from './student';
-import { StudentService } from './StudentService';
+import { Contact } from './contact';
+import { ContactService } from './ContactService';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
@@ -14,7 +14,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 export class DbhomePage implements OnInit {
   stdobj: any;
    searchTerm: string;
-  constructor(private apiservice: StudentService, private alertCtrl: AlertController,
+  constructor(private apiservice: ContactService, private alertCtrl: AlertController,
     private router: Router, private ngFirestore: AngularFirestore) { }
 
 
@@ -23,9 +23,9 @@ export class DbhomePage implements OnInit {
     this.apiservice.getData().subscribe((res) => {
       this.stdobj = res.map((t) => ({
           getid: t.payload.doc.id,
-          name: t.payload.doc.data()['sname'.toString()],
-          age: t.payload.doc.data()['age'.toString()],
-          address: t.payload.doc.data()['address'.toString()]
+          name: t.payload.doc.data()['name'.toString()],
+          phone: t.payload.doc.data()['phone'.toString()],
+          note: t.payload.doc.data()['note'.toString()]
         }));
         console.log(this.stdobj);
       });
@@ -44,12 +44,12 @@ export class DbhomePage implements OnInit {
             placeholder: 'Name'
           },
           {
-            name: 'inputage',
+            name: 'inputphone',
             placeholder: 'call'
           },
           {
-            name: 'inputaddress',
-            placeholder: 'Address'
+            name: 'inputnote',
+            placeholder: 'Note'
           }
         ],
         buttons: [
@@ -64,9 +64,9 @@ export class DbhomePage implements OnInit {
             text: 'Add',
             handler: data => {
               const tmpdata = {};
-               tmpdata['sname'.toString()] = data.inputname;
-               tmpdata['age'.toString()] = data.inputage;
-               tmpdata['address'.toString()] = data.inputaddress;
+               tmpdata['name'.toString()] = data.inputname;
+               tmpdata['phone'.toString()] = data.inputphone;
+               tmpdata['note'.toString()] = data.inputnote;
                   this.apiservice.createUser(tmpdata);
                   console.log(tmpdata);
             }
@@ -106,7 +106,7 @@ export class DbhomePage implements OnInit {
       async presentPromptEdit(tmpobj) {
       const alert = this.alertCtrl.create({
         header: 'Edit',
-        message: 'Now you are editing '+name,
+        message: 'Now you are editing ',
         inputs: [
           {
             name: 'name',
@@ -114,14 +114,14 @@ export class DbhomePage implements OnInit {
             value: tmpobj.name
           },
           {
-            name: 'age',
-            placeholder:tmpobj.age,
-            value: tmpobj.age
+            name: 'phone',
+            placeholder:tmpobj.phone,
+            value: tmpobj.phone
           },
           {
-            name: 'address',
-            placeholder: tmpobj.address,
-            value: tmpobj.address
+            name: 'note',
+            placeholder: tmpobj.note,
+            value: tmpobj.note
           }
         ],
         buttons: [
@@ -136,9 +136,9 @@ export class DbhomePage implements OnInit {
             text: 'Update',
             handler: data => {
               const updatedata = {};
-               updatedata['sname'.toString()] = data.name;
-               updatedata['age'.toString()] = data.age;
-               updatedata['address'.toString()] = data.address;
+               updatedata['name'.toString()] = data.name;
+               updatedata['phone'.toString()] = data.phone;
+               updatedata['note'.toString()] = data.note;
                ///this.ngFirestore.doc('/Student/'+id).update(updatedata);
                this.apiservice.updateUser(tmpobj.getid, updatedata);
                console.log(updatedata);

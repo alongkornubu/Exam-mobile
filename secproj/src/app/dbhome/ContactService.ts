@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Student } from './student';
+import { Contact } from './contact';
 import 'firebase/firestore';
 import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/compat/database';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
@@ -8,7 +8,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
   providedIn: 'root'
 })
 
-export class StudentService {
+export class ContactService {
   userList: AngularFireList<any>;
   userRef: AngularFireObject<any>;
 
@@ -16,20 +16,20 @@ export class StudentService {
 
   // Create
   createUser(user: any) {
-    return this.ngFirestore.collection('student').add(user);
+    return this.ngFirestore.collection('contact').add(user);
   }
 
   getData() {
-    return this.ngFirestore.collection('student').snapshotChanges();
+    return this.ngFirestore.collection('contact').snapshotChanges();
   }
 
   // Update
   updateUser(getid, updatedata: any) {
-    return this.ngFirestore.doc('student/'+getid).update(updatedata);
+    return this.ngFirestore.doc('contact/'+getid).update(updatedata);
   }
 
   // Delete
   deleteUser(delid) {
-    return this.ngFirestore.doc('student/'+delid).delete();
+    return this.ngFirestore.doc('contact/'+delid).delete();
   }
 }
