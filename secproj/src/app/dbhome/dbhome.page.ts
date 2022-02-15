@@ -45,7 +45,7 @@ export class DbhomePage implements OnInit {
           },
           {
             name: 'inputphone',
-            placeholder: 'call'
+            placeholder: 'Call'
           },
           {
             name: 'inputnote',

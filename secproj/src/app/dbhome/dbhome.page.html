@@ -1,9 +1,10 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Contact</ion-title>
+    <ion-icon slot="start" name="person-circle"></ion-icon>
+     <ion-title>Contact</ion-title>
   </ion-toolbar>
 </ion-header>
-
+<!--search-->
 <ion-content>
   <ion-searchbar
     placeholder="name"
@@ -29,7 +30,7 @@
           <ion-icon name="create-outline"></ion-icon> Edit</ion-button>-->
         <ion-button color="primary" (click)="presentPromptEdit(tmp)">
           <ion-icon name="create"></ion-icon> Edit</ion-button
-        >
+        >    
         <ion-button color="danger" (click)="presentConfirmDelete(tmp.getid)">
           <ion-icon name="trash"></ion-icon> Delete</ion-button
         >
