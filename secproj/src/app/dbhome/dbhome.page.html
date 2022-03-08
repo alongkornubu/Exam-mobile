@@ -1,50 +1,47 @@
 <ion-header>
   <ion-toolbar>
     <ion-icon slot="start" name="person-circle"></ion-icon>
-     <ion-title>Contact</ion-title>
+     <ion-title>ICT News</ion-title>
+     
   </ion-toolbar>
+  <p>สไลด์แก้ข้อมูล</p>
 </ion-header>
 <!--search-->
-<ion-content>
-  <ion-searchbar
-    placeholder="name"
-    [(ngModel)]="searchTerm"
-    showCancelButton="focus"
-    animate
-  >
-  </ion-searchbar>
 
+<ion-content>
   <ion-list>
-    <ion-list-header> List Contact </ion-list-header>
-    <ion-item-sliding *ngFor="let tmp of this.stdobj | filter:searchTerm">
+    <h1>รับสมัครนักศึกษาฝึกงาน</h1>
+    <ion-img style="width: 40%; height: 50%; margin: auto;" src="http://www.ict.sci.ubu.ac.th/posted_img.php?id=24"></ion-img>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <ion-item-sliding *ngFor="let tmp of this.stdobj">
       <ion-item>
         <ion-label>
+          <h1>รายละเอียด</h1>
           <h2>{{tmp.name}}</h2>
-          <p>{{tmp.phone}}</p>
-          <p>{{tmp.note}}</p>
+           <p>{{tmp.phone}}</p>
+          <!-- <p>{{tmp.note}}</p>  -->
+          
         </ion-label>
+        
       </ion-item>
       <ion-item-options>
-        
+       
         <!--<ion-button color="primary" (click)="presentPromptEdit(tmp.id, tmp.name, tmp.address, tmp.age)">
           <ion-icon name="create-outline"></ion-icon> Edit</ion-button>-->
-        <ion-button color="primary" (click)="presentPromptEdit(tmp)">
-          <ion-icon name="create"></ion-icon> Edit</ion-button
-        >    
+          <ion-button color="primary" (click)="presentPromptEdit(tmp)">
+            <ion-icon name="create"></ion-icon> Edit</ion-button
+          >    
+        
         <ion-button color="danger" (click)="presentConfirmDelete(tmp.getid)">
           <ion-icon name="trash"></ion-icon> Delete</ion-button
         >
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
-  <ion-button
-    (click)="presentPromptAdd(tmp)"
-    expand="medium"
-    color="tertiary"
-    icon-start
-  >
-    <ion-icon name="add"></ion-icon>
-    Create
-  </ion-button>
+  
  
 </ion-content>

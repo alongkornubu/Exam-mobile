@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ShowcameraPageRoutingModule } from './showcamera-routing.module';
+import { EditnewsPageRoutingModule } from './editnews-routing.module';
 
-import { ShowcameraPage } from './showcamera.page';
+import { EditnewsPage } from './editnews.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ShowcameraPageRoutingModule
+    EditnewsPageRoutingModule
   ],
-  declarations: [ShowcameraPage]
+  declarations: [EditnewsPage]
 })
-export class ShowcameraPageModule {}
+export class EditnewsPageModule {}

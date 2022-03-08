@@ -45,12 +45,12 @@ export class DbhomePage implements OnInit {
           },
           {
             name: 'inputphone',
-            placeholder: 'Call'
+            placeholder: 'link'
           },
-          {
-            name: 'inputnote',
-            placeholder: 'Note'
-          }
+          // {
+          //   name: 'inputnote',
+          //   placeholder: 'Note'
+          // }
         ],
         buttons: [
           {
@@ -65,8 +65,8 @@ export class DbhomePage implements OnInit {
             handler: data => {
               const tmpdata = {};
                tmpdata['name'.toString()] = data.inputname;
-               tmpdata['phone'.toString()] = data.inputphone;
-               tmpdata['note'.toString()] = data.inputnote;
+              //  tmpdata['phone'.toString()] = data.inputphone;
+              //  tmpdata['note'.toString()] = data.inputnote;
                   this.apiservice.createUser(tmpdata);
                   console.log(tmpdata);
             }
@@ -118,11 +118,11 @@ export class DbhomePage implements OnInit {
             placeholder:tmpobj.phone,
             value: tmpobj.phone
           },
-          {
-            name: 'note',
-            placeholder: tmpobj.note,
-            value: tmpobj.note
-          }
+          // {
+          //   name: 'note',
+          //   placeholder: tmpobj.note,
+          //   value: tmpobj.note
+          // }
         ],
         buttons: [
           {
@@ -138,7 +138,7 @@ export class DbhomePage implements OnInit {
               const updatedata = {};
                updatedata['name'.toString()] = data.name;
                updatedata['phone'.toString()] = data.phone;
-               updatedata['note'.toString()] = data.note;
+              //  updatedata['note'.toString()] = data.note;
                ///this.ngFirestore.doc('/Student/'+id).update(updatedata);
                this.apiservice.updateUser(tmpobj.getid, updatedata);
                console.log(updatedata);

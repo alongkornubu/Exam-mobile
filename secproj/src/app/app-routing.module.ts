@@ -11,30 +11,16 @@ const routes: Routes = [
     redirectTo: 'dbhome',
     pathMatch: 'full'
   },
-  {
-    path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
-  },
-  {
-    path: 'avatarpg',
-    loadChildren: () => import('./avatarpg/avatarpg.module').then( m => m.AvatarpgPageModule)
-  },
-  {
-    path: 'avatarresult/:sendobj',
-    loadChildren: () => import('./avatarresult/avatarresult.module').then( m => m.AvatarresultPageModule)
-  },
+ 
   {
     path: 'dbhome',
     loadChildren: () => import('./dbhome/dbhome.module').then( m => m.DbhomePageModule)
+  },  {
+    path: 'editnews',
+    loadChildren: () => import('./editnews/editnews.module').then( m => m.EditnewsPageModule)
   },
-  {
-    path: 'showmap',
-    loadChildren: () => import('./showmap/showmap.module').then( m => m.ShowmapPageModule)
-  },
-  {
-    path: 'showcamera',
-    loadChildren: () => import('./showcamera/showcamera.module').then( m => m.ShowcameraPageModule)
-  },
+
+
 ];
 
 @NgModule({
